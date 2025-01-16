@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- EditText nhập dãy số -->
+    <EditText
+        android:id="@+id/editTextNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:hint="Nhập dãy số (cách nhau bằng dấu cách)"
+        android:inputType="text"
+        tools:ignore="HardcodedText" />
+
+    <!-- TextView để hiển thị kết quả -->
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Kết quả sẽ hiển thị ở đây"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+    <!-- Nút để kiểm tra các số chính phương -->
+    <Button
+        android:id="@+id/buttonCheckPerfectSquares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kiểm Tra"
+        android:layout_marginTop="16dp"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

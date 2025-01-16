@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- EditText nhập dãy số -->
+    <EditText
+        android:id="@+id/editTextNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:hint="Nhập một số bất kỳ (sẽ kiểm tra số này)"
+        android:inputType="text"
+        tools:ignore="HardcodedText" />
+
+
+    <Button
+        android:id="@+id/buttonCheckPrime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Kiểm Tra"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Kết quả sẽ hiển thị ở đây"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>
