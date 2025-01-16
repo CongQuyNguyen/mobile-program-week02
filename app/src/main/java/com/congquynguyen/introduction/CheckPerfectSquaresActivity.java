@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class CheckPerfectSquaresActivity extends AppCompatActivity {
 
@@ -34,49 +35,44 @@ public class CheckPerfectSquaresActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                // Lấy dãy số nhập vào từ EditText
-                String inputText = editTextNumbers.getText().toString().trim();
-                if (!inputText.isEmpty()) {
+                String quantityText = editTextNumbers.getText().toString().trim();
+                if (!quantityText.isEmpty()) {
+                    int quantity = Integer.parseInt(quantityText);
 
-                    // Tách dãy số thành mảng số nguyên (do em nhận vào một dãy - dùng regex để tách)
-                    String[] numberStrings = inputText.split("\\s+");
+                    List<Integer> perfectSquares = generateRandomPerfectSquares(quantity);
 
-                    List<Integer> numbers = new ArrayList<>();
-                    for (String num : numberStrings) {
-                        try {
-                            numbers.add(Integer.parseInt(num));
-                        } catch (NumberFormatException e) {
-                            Toast.makeText(CheckPerfectSquaresActivity.this, "Dãy số không hợp lệ", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    }
-
-                    StringBuilder result = new StringBuilder();
-                    for (int number : numbers) {
-                        if (isPerfectSquare(number)) {
+                    if (!perfectSquares.isEmpty()) {
+                        StringBuilder result = new StringBuilder();
+                        for (int number : perfectSquares) {
                             result.append(number).append(" ");
                         }
-                    }
-
-                    // Hiển thị kết quả trên TextView
-                    if (result.length() > 0) {
                         textViewResult.setText("Số chính phương: " + result);
                     } else {
                         textViewResult.setText("Không có số chính phương nào.");
                     }
-
-                    // Hiển thị Toast nếu có số chính phương
-                    if (result.length() > 0) {
-                        Toast.makeText(CheckPerfectSquaresActivity.this, "Các số chính phương: " + result, Toast.LENGTH_SHORT).show();
-                    }
                 } else {
-                    Toast.makeText(CheckPerfectSquaresActivity.this, "Vui lòng nhập dãy số", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CheckPerfectSquaresActivity.this, "Vui lòng nhập số lượng phần tử", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    // Hàm kiểm tra số chính phương
+    // Hàm random dãy số chính phương
+    private List<Integer> generateRandomPerfectSquares(int quantity) {
+        List<Integer> perfectSquares = new ArrayList<>();
+        Random random = new Random();
+        int count = 0;
+
+        while (count < quantity) {
+            int randomNum = random.nextInt(100000) + 1;
+            if (isPerfectSquare(randomNum)) {
+                perfectSquares.add(randomNum);
+                count++;
+            }
+        }
+        return perfectSquares;
+    }
+
     public boolean isPerfectSquare(int number) {
         double sqrt = Math.sqrt(number);
         return sqrt == Math.floor(sqrt);

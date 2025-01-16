@@ -11,7 +11,7 @@
         android:id="@+id/editTextNumbers"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:hint="Nhập dãy số (cách nhau bằng dấu cách)"
+        android:hint="Nhập số lượng phần tử dãy số."
         android:inputType="text"
         tools:ignore="HardcodedText" />
 
